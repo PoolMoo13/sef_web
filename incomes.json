@@ -1,0 +1,47 @@
+{
+    "fields": [
+        {
+            "name": "name",
+            "type": "string"
+        },
+        {
+            "name": "amount",
+            "type": "float"
+        },
+        {
+            "name": "area_id",
+            "type": "integer#unsigned"
+        },
+        {
+            "name": "user_id",
+            "type": "integer#unsigned"
+        }
+    ],
+    "foreign_keys": [
+        {
+            "column": "area_id",
+            "references": "id",
+            "on": "areas",
+            "onDelete": "cascade"
+        },
+        {
+            "column": "user_id",
+            "references": "id",
+            "on": "users",
+            "onDelete": "cascade"
+        }
+    ],
+    "relationships": [
+        {
+            "name": "area",
+            "type": "belongsTo",
+            "class": "App\\Area"
+        },
+        {
+            "name": "user",
+            "type": "belongsTo",
+            "class": "App\\User"
+        }
+    ]
+}
+

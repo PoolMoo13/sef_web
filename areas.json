@@ -1,0 +1,50 @@
+{
+    "fields": [
+        {
+            "name": "name",
+            "type": "string"
+        },
+        {
+            "name": "current_amount",
+            "type": "float"
+        },
+        {
+            "name": "amount",
+            "type": "float"
+        },
+        {
+            "name": "user_id",
+            "type": "integer#unsigned"
+        },
+        {
+            "name": "active",
+            "type": "integer#unsigned"
+        }
+    ],
+    "foreign_keys": [
+        {
+            "column": "user_id",
+            "references": "id",
+            "on": "users",
+            "onDelete": "cascade"
+        }
+    ],
+    "relationships": [
+        {
+            "name": "expenses",
+            "type": "hasMany",
+            "class": "App\\Expense"
+        },
+        {
+            "name": "incomes",
+            "type": "hasMany",
+            "class": "App\\Income"
+        },
+        {
+            "name": "user",
+            "type": "belongsTo",
+            "class": "App\\User"
+        }
+    ]
+}
+
